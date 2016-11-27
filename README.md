@@ -75,15 +75,14 @@ $('#date2').dateTool().setLgDate(str);
 /*示例：两个input日期选择器相互影响*/
 
 $('#date1').lzdate({
-			smDate:'2010-9-21',
-			lgDate : '2016-12-21'
+		smDate:'2010-9-21',
+		lgDate : '2016-12-21'
 		},function(){
 			$('#date2').dateTool().setSmDate($("#date1").val());
 		});
-
-		$('#date2').lzdate({
-			smDate:'2010-9-21',
-			lgDate : '2016-12-21'
+$('#date2').lzdate({
+		smDate:'2010-9-21',
+		lgDate : '2016-12-21'
 		},function(){
 			$('#date1').dateTool().setLgDate($("#date2").val());
 		});
