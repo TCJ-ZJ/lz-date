@@ -51,7 +51,43 @@
 ### 提供的css选择器
 --自定义样式时请带上外层父级id，避免同一页面多个组件样式冲突
 ```css
-.lzscroll-theme-Y  //垂直滚动条样式
-.lzscroll-theme-X  //水平滚动条样式
+.lzdate-box        //日期选择器盒子
+.lzdate-header     //日期选择器头部
+.lzdate-weeks      //日期选择器星期盒子
+.lzdate-days	   //日期选择日期盒子	
+.lzdate-prev-year  //日期选择器向前一年按钮
+.lzdate-next-year  //日期选择器向后一年按钮
+.lzdate-prev-month //日期选择器向前一月按钮
+.lzdate-next-month //日期选择器向后一月按钮
+.lzdate-main       //日期年份月份显示盒子
+.lzdate-today      //日期当天表示样式
+.lzdate-disable    //日期不可选样式
 ```
+
+### 提供的外部调用函数
+
+**调用接口**
+```javascript
+/*调用接口时，请使用需要改变日期可选范围的input*/
+$('#date1').dateTool().setSmDate(str);
+$('#date2').dateTool().setLgDate(str);
+
+/*示例：两个input日期选择器相互影响*/
+
+$('#date1').lzdate({
+			smDate:'2010-9-21',
+			lgDate : '2016-12-21'
+		},function(){
+			$('#date2').dateTool().setSmDate($("#date1").val());
+		});
+
+		$('#date2').lzdate({
+			smDate:'2010-9-21',
+			lgDate : '2016-12-21'
+		},function(){
+			$('#date1').dateTool().setLgDate($("#date2").val());
+		});
+
+```
+
 © 本手册由 磨盘兄弟 @lzmoop 官方提供 www.lzmoop.com
