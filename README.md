@@ -42,10 +42,26 @@
         $('#lzdate4').lzdate({
             smDate : '1970-01-01' ,
             lgDate : '2020-01-01' ,
-            today : true 
-        },fn)
+            today : true,
+	    _onSelect:fn
+        })
     -->
 </script>
+```
+
+###回调方法
+```javascript
+	//调用方式	
+	var tool = $('#lzdate').lzdate(); //调用插件并获得回调方法集
+	var tool =  $('#lzdate').dateTool(); //获得该元素的回调方法集
+	
+	//回调方法
+	tool.getDate() //当前日期	
+	tool.setDate(str) //设置日期	
+	tool.setSmDate(str) //设置当前最小选择日期
+	tool.setLgDate(str) // 设置当前最大选择日期	
+	tool.init({}) //初始化日期选择器
+	tool.on('select',fn) //添加选择日期时的回调函数
 ```
 
 ### 提供的css选择器
@@ -62,31 +78,6 @@
 .lzdate-main       //日期年份月份显示盒子
 .lzdate-today      //日期当天表示样式
 .lzdate-disable    //日期不可选样式
-```
-
-### 提供的外部调用函数
-
-**调用接口**
-```javascript
-/*调用接口时，请使用需要改变日期可选范围的input*/
-$('#date1').dateTool().setSmDate(str);
-$('#date2').dateTool().setLgDate(str);
-
-/*示例：两个input日期选择器相互影响*/
-
-$('#date1').lzdate({
-		smDate:'2010-9-21',
-		lgDate : '2016-12-21'
-		},function(){
-			$('#date2').dateTool().setSmDate($("#date1").val());
-		});
-$('#date2').lzdate({
-		smDate:'2010-9-21',
-		lgDate : '2016-12-21'
-		},function(){
-			$('#date1').dateTool().setLgDate($("#date2").val());
-		});
-
 ```
 
 © 本手册由 磨盘兄弟 @lzmoop 官方提供 www.lzmoop.com
